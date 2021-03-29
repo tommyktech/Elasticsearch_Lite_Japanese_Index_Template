@@ -1,4 +1,5 @@
 # Elasticsearch Index Templates
+普段使ってるElasticsearchのindex templateを載せておくリポジトリ。
 
 ## kvs テンプレート
 ESではデフォルトで全文検索がONになっているので、それをあえてデフォルトOFFにしてKey Valueストアのように使うためのテンプレート。メモリやディスクの使用量を削減するために役立つ。
