@@ -1,4 +1,4 @@
-# Elasticsearch Lightweight Index Templates
+# Elasticsearch Lite Japanese Index Templates
 Elasticsearchで日本語全文検索を軽量かつ簡単に扱うためのindex template。  
 このテンプレートを使うと全文検索機能がデフォルトでオフになり、特定のフィールドだけにオンにすることが出来るようになります。  
 また、全文検索フィールドで使われるanalyzerやmappingの設定を工夫することで、保存データ量が削減されるようになっています。  
