@@ -9,13 +9,41 @@ Elasticsearchで日本語全文検索を軽量かつ簡単に扱うためのinde
 3. `lite_`を接頭辞(prefix)にした名前のindexを作成  
   例: `PUT /lite_sample_index`
 4. 全文検索したいフィールドの名前に接尾辞(suffix)として`_txt`を付与してデータを格納する  
-  例:
-> POST lite_sample_index/_doc/  
-> {  
-> &ensp;&ensp;"title_txt": "本日は晴天なり"  
-> }  
-5. 検索する
+```
+POST lite_sample_index/_doc/  
+{  
+  "title_txt": "本日は晴天なり"  
+}  
+```
 
+5. 検索する
+```
+POST lite_sample_index/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "sample_txt": {
+              "query": "本日は晴天なり",
+              "boost": 1
+            }
+          }
+        },
+        {
+          "match": {
+            "sample_txt.kuromoji": {
+              "query": "本日は晴天なり",
+              "boost": 3
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
 ## 仕組み
 * テンプレート機能によってテキストデータはデフォルトでは`keyword`として格納され、`_txt`が末尾についたフィールドのみ全文検索が適用されるため、格納されるデータ量が抑えられる
