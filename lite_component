@@ -1,4 +1,3 @@
-
 PUT _component_template/lite
 {
   "template" : {
@@ -19,28 +18,21 @@ PUT _component_template/lite
               "type" : "icu_transform",
               "id" : "Hiragana-Latin; Katakana-Latin; NFD; [:Nonspacing Mark:] Remove; NFC"
             },
-            "katakana_readingform" : {
-              "type" : "kuromoji_readingform",
-              "use_romaji" : "false"
-            },
             "pos_filter" : {
               "type" : "kuromoji_part_of_speech",
               "stoptags" : [
                 "助詞-格助詞-一般",
                 "助詞-終助詞"
               ]
-            },
-            "romaji_readingform" : {
-              "type" : "kuromoji_readingform",
-              "use_romaji" : "true"
             }
           },
           "analyzer" : {
             "kuromoji_analyzer" : {
               "filter" : [
                 "greek_lowercase_filter",
-                "kana_filter",
-                "cjk_width"
+                "pos_filter", 
+                "cjk_width",
+                "kana_filter"
               ],
               "tokenizer" : "my_kuromoji_tokenizer"
             },
