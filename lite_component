@@ -14,10 +14,6 @@ PUT _component_template/lite
               "type" : "icu_transform",
               "id" : "Hiragana-Katakana"
             },
-            "my_latin_transform" : {
-              "type" : "icu_transform",
-              "id" : "Hiragana-Latin; Katakana-Latin; NFD; [:Nonspacing Mark:] Remove; NFC"
-            },
             "pos_filter" : {
               "type" : "kuromoji_part_of_speech",
               "stoptags" : [
