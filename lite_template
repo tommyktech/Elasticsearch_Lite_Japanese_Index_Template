@@ -1,0 +1,19 @@
+{
+  "index_templates" : [
+    {
+      "name" : "lite_template",
+      "index_template" : {
+        "index_patterns" : [
+          "lite_*"
+        ],
+        "template" : {
+          "aliases" : { }
+        },
+        "composed_of" : [
+          "lite_component"
+        ],
+        "priority" : 10
+      }
+    }
+  ]
+}
